@@ -35,7 +35,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: Package Lambda function
-        working-directory: lambda_function
+        working-directory: sam_lambda
         run: |
           zip -r lambda_function.zip .
 
