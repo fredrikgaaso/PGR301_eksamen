@@ -13,7 +13,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
-          path: sam_lambda
+          path: sam_lambda/.aws-sam
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -29,13 +29,13 @@ jobs:
             ${{ runner.os }}-pip-
 
       - name: Install dependencies
-        working-directory: lambda_function
+        working-directory: sam_lambda/.aws-sam
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
       - name: Package Lambda function
-        working-directory: sam_lambda
+        working-directory: sam_lambda/.aws-sam
         run: |
           zip -r lambda_function.zip .
 
