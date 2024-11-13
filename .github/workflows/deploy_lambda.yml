@@ -33,4 +33,4 @@ jobs:
         run: |
           aws lambda update-function-code \
             --function-name ImageGenerator75-ImageGeneratorFunction-0InEBPKElRx3 \
-            --zip-file fileb://PGR301_eksamen/sam_lambda/.aws-sam/build/lambda_function.zip
+            --zip-file fileb://lambda_function.zip
