@@ -27,11 +27,11 @@ jobs:
 
       - name: Package Lambda function
         run: |
-          cd PGR301_eksamen/sam_lambda/.aws-sam/build
+          cd sam_lambda/build
           zip -r ../../lambda_function.zip .
 
       - name: Deploy Lambda function
         run: |
           aws lambda update-function-code \
             --function-name ImageGenerator75-ImageGeneratorFunction-0InEBPKElRx3 \
-            --zip-file fileb://PGR301_eksamen/sam_lambda/lambda_function.zip
+            --zip-file fileb://lambda_function.zip
