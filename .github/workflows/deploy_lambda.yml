@@ -42,4 +42,4 @@ jobs:
         run: |
           aws lambda update-function-code \
             --function-name ImageGenerator75-ImageGeneratorFunction-0InEBPKElRx3 \
-            --zip-file fileb://lambda_function/lambda_function.zip
+            --zip-file fileb://lambda_function.zip
