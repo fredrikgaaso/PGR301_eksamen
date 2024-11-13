@@ -1,8 +1,8 @@
 version = 0.1
 [default.deploy.parameters]
-stack_name = "ImageGeneratorFunction"
+stack_name = "ImageGenerator75"
 resolve_s3 = true
-s3_prefix = "ImageGeneratorFunction"
+s3_prefix = "ImageGenerator75"
 region = "eu-west-1"
 confirm_changeset = true
 capabilities = "CAPABILITY_IAM"

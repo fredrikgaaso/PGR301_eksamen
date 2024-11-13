@@ -1,9 +1,9 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
-Description: image-generator SAM Template for Image Generation Lambda function
+Description: image-generator
 Globals:
   Function:
-    Timeout: 10
+    Timeout: 30
     MemorySize: 256
     Tracing: Active
     LoggingConfig:
@@ -39,17 +39,16 @@ Resources:
             Ref: CandidateNumber
       Policies:
       - AWSLambdaBasicExecutionRole
-      - PolicyDocument:
-          Statement:
-          - Effect: Allow
-            Action:
-            - bedrock:InvokeModel
-            Resource: '*'
-          - Effect: Allow
-            Action:
-            - s3:PutObject
-            Resource:
-              Fn::Sub: arn:aws:s3:::${BucketName}/*
+      - Statement:
+        - Effect: Allow
+          Action:
+          - bedrock:InvokeModel
+          Resource: '*'
+        - Effect: Allow
+          Action:
+          - s3:PutObject
+          Resource:
+            Fn::Sub: arn:aws:s3:::${BucketName}/*
       Events:
         GenerateImageApi:
           Type: Api
