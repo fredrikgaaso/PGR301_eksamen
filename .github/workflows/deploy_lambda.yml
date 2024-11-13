@@ -1,9 +1,10 @@
-name: Deploy Lambda Function
+name: Deploy SAM Lambda
 
 on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -11,21 +12,36 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v2
         with:
-          python-version: '3.9'
+          python-version: '3.8'
 
-      - name: Package Lambda function
+      - name: Install AWS CLI
+        run: |
+          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+          unzip awscliv2.zip
+          sudo ./aws/install
+
+      - name: Install AWS SAM CLI
+        run: |
+          pip install aws-sam-cli
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
+      - name: Build SAM application
+        run: |
+          cd PGR301_eksamen/sam_lambda
+          sam build
+
+      - name: Deploy SAM application
         run: |
           cd PGR301_eksamen/sam_lambda/.aws-sam
-          zip -r lambda_function.zip .
-
-      - name: Deploy Lambda function
-        run: |
-          aws lambda update-function-code \
-            --function-name ImageGenerator75-ImageGeneratorFunction-0InEBPKElRx3 \
-            --zip-file fileb://PGR301_eksamen/sam_lambda/.aws-sam/lambda_function.zip
-
+          sam deploy --no-confirm-changeset --stack-name pgr301-sam-lambda --capabilities CAPABILITY_IAM
