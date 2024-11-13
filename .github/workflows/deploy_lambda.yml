@@ -27,7 +27,7 @@ jobs:
 
       - name: Package Lambda function
         run: |
-          cd sam_lambda/build
+          cd sam_lambda/ImageGenerator
           zip -r ../../lambda_function.zip .
 
       - name: Deploy Lambda function
