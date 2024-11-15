@@ -22,6 +22,15 @@ jobs:
     - name: Set up Terraform
       uses: hashicorp/setup-terraform@v2
 
+    - name: Zip Lambda Python Script
+      run: |
+        cd infra/terraform-lambda
+        if [ -f lambda_sqs.py.zip ]; then
+          rm lambda_sqs.py.zip
+        fi
+        zip lambda_sqs.py.zip lambda_sqs.py
+
+
     - name: Terraform Init
       run: |
         cd infra/terraform-lambda/terraform
