@@ -61,11 +61,6 @@ Resources:
             - SimpleQueue
             - Arn
       Events:
-        GenerateImageApi:
-          Type: Api
-          Properties:
-            Path: /generate-image
-            Method: POST
         SqsQueueEvent:
           Type: SQS
           Properties:
