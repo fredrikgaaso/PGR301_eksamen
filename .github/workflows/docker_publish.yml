@@ -26,8 +26,9 @@ jobs:
       - name: Build Docker Image
         run: |
           cd java_sqs_client
-          docker build -t 75/imagegenerator:latest .
+          TAG=$(uuidgen)
+          docker build -t imagegenerator:${TAG} .
 
       - name: Push Docker Image
         run: |
-          docker push 75/imagegenerator:latest
+          docker push imagegenerator:${TAG}
