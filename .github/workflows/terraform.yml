@@ -24,10 +24,7 @@ jobs:
 
     - name: Zip Lambda Python Script
       run: |
-        cd infra/terraform-lambda
-        if [ -f lambda_sqs.py.zip ]; then
-          rm lambda_sqs.py.zip
-        fi
+        cd infra/terraform-lambda/terraform/ImageGeneratorWithQue
         zip lambda_sqs.py.zip lambda_sqs.py
 
 
