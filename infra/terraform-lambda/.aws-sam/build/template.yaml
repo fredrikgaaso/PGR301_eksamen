@@ -1,0 +1,78 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: terraform-lambda
+Transform: AWS::Serverless-2016-10-31
+Globals:
+  Function:
+    Timeout: 30
+    MemorySize: 256
+    Tracing: Active
+    LoggingConfig:
+      LogFormat: JSON
+  Api:
+    TracingEnabled: true
+Parameters:
+  BucketName:
+    Type: String
+    Default: pgr301-couch-explorers
+  CandidateNumber:
+    Type: String
+    Default: '75'
+  ModelId:
+    Type: String
+    Default: amazon.titan-image-generator-v1
+Resources:
+  SimpleQueue:
+    Type: AWS::SQS::Queue
+  ImageLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: ImageLambda
+      Handler: lambda_sqs.lambda_handler
+      Runtime: python3.9
+      Architectures:
+      - x86_64
+      Environment:
+        Variables:
+          MODEL_ID:
+            Ref: ModelId
+          BUCKET_NAME:
+            Ref: BucketName
+          CANDIDATE_NUMBER:
+            Ref: CandidateNumber
+      Policies:
+      - AWSLambdaBasicExecutionRole
+      - Statement:
+        - Effect: Allow
+          Action:
+          - bedrock:InvokeModel
+          Resource: '*'
+        - Effect: Allow
+          Action:
+          - s3:PutObject
+          Resource:
+            Fn::Sub: arn:aws:s3:::${BucketName}/*
+        - Effect: Allow
+          Action:
+          - sqs:ReceiveMessage
+          - sqs:DeleteMessage
+          - sqs:GetQueueAttributes
+          Resource:
+            Fn::GetAtt:
+            - SimpleQueue
+            - Arn
+      Events:
+        GenerateImageApi:
+          Type: Api
+          Properties:
+            Path: /generate-image
+            Method: POST
+        SqsQueueEvent:
+          Type: SQS
+          Properties:
+            Queue:
+              Fn::GetAtt:
+              - SimpleQueue
+              - Arn
+            BatchSize: 5
+    Metadata:
+      SamResourceId: ImageLambda
