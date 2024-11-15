@@ -27,6 +27,7 @@ jobs:
         run: |
           cd java_sqs_client
           TAG=$(date +'%Y%m%d%H%M%S')
+          echo "Generated TAG: ${TAG}"
           docker build -t ${{ secrets.DOCKER_USERNAME }}/imagegenerator-75:${TAG} .
 
       - name: Push Docker Image
