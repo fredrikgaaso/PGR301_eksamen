@@ -28,6 +28,6 @@ jobs:
     - name: Terraform Plan or Apply
       id: terraform
       run: |
-        if github.ref == 'refs/heads/main' then
-          terraform apply -auto-approve
+        if [[ $GITHUB_REF == "refs/heads/main" ]]; then          
+        terraform apply -auto-approve
       continue-on-error: false
