@@ -25,6 +25,14 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: eu-west-1
 
+      - name: Zip Lambda Python Script
+      run: |
+        cd infra/terraform-lambda
+        if [ -f lambda_sqs.py.zip ]; then
+          rm lambda_sqs.py.zip
+        fi
+        zip lambda_sqs.py.zip lambda_sqs.py
+
       - name: Package Lambda function
         run: |
           cd sam_lambda/ImageGenerator
