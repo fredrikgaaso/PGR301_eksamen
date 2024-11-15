@@ -23,16 +23,17 @@ jobs:
       uses: hashicorp/setup-terraform@v2
 
     - name: Terraform Init
-      run: cd infra/terraform-lambda/terraform
-          terraform init
+      run: |
+        cd infra/terraform-lambda/terraform
+        terraform init
 
     - name: Terraform Plan or Apply
       id: terraform
       run: |
-         cd infra/terraform-lambda/terraform
-         if [[ $GITHUB_REF == "refs/heads/main" ]]; then
+        cd infra/terraform-lambda/terraform
+        if [[ $GITHUB_REF == "refs/heads/main" ]]; then
           terraform apply -auto-approve
-          else
+        else
           terraform plan
-          fi
+        fi
       continue-on-error: false
