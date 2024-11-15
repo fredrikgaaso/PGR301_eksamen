@@ -24,7 +24,6 @@ jobs:
         with:
           images: ${{ secrets.DOCKER_USERNAME }}/imagegenerator-75
           tags: |
-            type=raw,value=${{ github.run_number }}
             type=raw,value={{date 'YYYY:MM:DD'}}
             type=raw,value=latest
 
