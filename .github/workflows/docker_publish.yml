@@ -30,5 +30,4 @@ jobs:
 
       - name: Push Docker Image
         run: |
-          cd java_sqs_client
           docker push ${{ secrets.DOCKER_USERNAME }}/imagegenerator:latest
