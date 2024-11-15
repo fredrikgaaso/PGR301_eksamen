@@ -30,6 +30,4 @@ jobs:
       run: |
         if github.ref == 'refs/heads/main' then
           terraform apply -auto-approve
-        else
-          terraform plan
       continue-on-error: false
