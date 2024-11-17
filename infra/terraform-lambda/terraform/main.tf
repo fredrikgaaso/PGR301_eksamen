@@ -1,9 +1,9 @@
 terraform {
   required_version = ">= 1.9"
   backend "s3" {
-    bucket = "pgr301-2024-terraform-state"
-    key    = "75/terraform.tfstate"
-    region = "eu-west-1"
+    bucket = "${var.bucket_name}"
+    key    = "${var.candidate_number}/terraform.tfstate"
+    region = "${var.region}"
   }
   required_providers {
     aws = {

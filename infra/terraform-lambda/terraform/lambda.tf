@@ -9,8 +9,8 @@ resource "aws_lambda_function" "lambda_function" {
   environment {
     variables = {
       MODEL_ID        = "amazon.titan-image-generator-v1"
-      BUCKET_NAME     = "pgr301-couch-explorers"
-      CANDIDATE_NUMBER = "75"
+      BUCKET_NAME     = "${var.bucket_name}"
+      CANDIDATE_NUMBER = "${var.candidate_number}"
     }
   }
 }
