@@ -22,6 +22,11 @@ jobs:
     - name: Set up Terraform
       uses: hashicorp/setup-terraform@v2
 
+    - name: Clean Terraform Cache
+      run: |
+        cd infra/terraform-lambda/terraform
+        rm -rf .terraform .terraform.lock.hcl
+
     - name: Zip Lambda Python Script
       run: |
         cd infra/terraform-lambda/terraform/ImageGeneratorWithQue
