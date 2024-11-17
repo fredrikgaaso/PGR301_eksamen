@@ -19,7 +19,7 @@ variable "candidate_number" {
 variable "alarm_email" {
   description = "Email to be sent to"
   type        = string
-  default     = "frga004@egms.no"
+  default     = "fredrikravndalgaaso@gmail.com"
 }
 
 variable "sqs_queue_name" {

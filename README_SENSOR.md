@@ -7,9 +7,9 @@ https://github.com/fredrikgaaso/PGR301_eksamen/actions/runs/11822299007
 
 <strong>SQS QUE:<strong/><br/>
 (Sqs url gotten from aws):
-https://sqs.eu-west-1.amazonaws.com/244530008913/terraform-75-SimpleQueue-ITrY5qV4c0gZ <br/>
+https://sqs.eu-west-1.amazonaws.com/244530008913/lambda_sqs_queue_75 <br>
 (Sqs url gotten from searchbar in browser):
-https://eu-west-1.console.aws.amazon.com/sqs/v3/home?region=eu-west-1#/queues/https%3A%2F%2Fsqs.eu-west-1.amazonaws.com%2F244530008913%2Fterraform-75-SimpleQueue-ITrY5qV4c0gZ <br/>
+https://eu-west-1.console.aws.amazon.com/sqs/v3/home?region=eu-west-1#/queues/https%3A%2F%2Fsqs.eu-west-1.amazonaws.com%2F244530008913%2Flambda_sqs_queue_75 <br>
 
 <strong>Github workflow main branch:<strong/><br/>
 https://github.com/fredrikgaaso/PGR301_eksamen/actions/runs/11855057052
