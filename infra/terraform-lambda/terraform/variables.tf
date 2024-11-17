@@ -15,3 +15,15 @@ variable "candidate_number" {
   type        = string
   default     = "75"
 }
+
+variable "alarm_email" {
+  description = "Email to be sent to"
+  type        = string
+  default     = "fredrikravndalgaaso@gmail.com"
+}
+
+variable "sqs_queue_name" {
+  description = "Name of sqs que"
+  type        = string
+  default     = "lambda_sqs_queue_75"
+}

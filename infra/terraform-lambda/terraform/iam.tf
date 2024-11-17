@@ -36,7 +36,7 @@ resource "aws_iam_policy" "lambda_access_policy" {
           "s3:PutObject"
         ],
         Effect   = "Allow",
-        Resource = "arn:aws:s3:::pgr301-couch-explorers/*"
+        Resource = "arn:aws:s3:::${var.bucket_name}/*"
       }
     ]
   })

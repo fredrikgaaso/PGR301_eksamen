@@ -3,14 +3,14 @@ resource "aws_lambda_function" "lambda_function" {
   runtime       = "python3.9"
   role          = aws_iam_role.lambda_execution_role.arn
   handler       = "ImageGeneratorWithQue/lambda_sqs.lambda_handler"
-  filename      = "ImageGeneratorWithQue/lambda_sqs.py.zip"
+  filename      = "${path.module}/ImageGeneratorWithQue/lambda_sqs.py"
   timeout       = 60
 
   environment {
     variables = {
       MODEL_ID        = "amazon.titan-image-generator-v1"
-      BUCKET_NAME     = "pgr301-couch-explorers"
-      CANDIDATE_NUMBER = "75"
+      BUCKET_NAME     = "${var.bucket_name}"
+      CANDIDATE_NUMBER = "${var.candidate_number}"
     }
   }
 }
