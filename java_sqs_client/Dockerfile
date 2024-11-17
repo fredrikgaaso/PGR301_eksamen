@@ -15,6 +15,8 @@ WORKDIR /app
 
 COPY --from=build /app/target/*SNAPSHOT.jar app.jar
 
+ENV SQS_QUEUE_URL = "https://sqs.eu-west-1.amazonaws.com/244530008913/terraform-75-SimpleQueue-ITrY5qV4c0gZ"
+
 EXPOSE 8080
 
 ENTRYPOINT ["java", "-jar", "app.jar"]
