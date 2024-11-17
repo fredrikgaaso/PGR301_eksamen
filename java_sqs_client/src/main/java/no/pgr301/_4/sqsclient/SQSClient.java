@@ -29,7 +29,7 @@ public class SQSClient implements CommandLineRunner {
 
         Region region = Region.EU_WEST_1;
         String queueUrl = System.getenv("SQS_QUEUE_URL");
-
+        //something to test
         SqsClient sqsClient = SqsClient.builder().region(region)
                 .build();
 
