@@ -24,8 +24,8 @@ jobs:
 
     - name: Clean Terraform Cache
       run: |
-        cd infra/terraform-lambda/terraform
-        rm -rf .terraform .terraform.lock.hcl
+        cd infra/terraform-lambda/terraform/ImageGeneratorWithQue
+        rm -rf lambda_sqs.py.zip
 
     - name: Zip Lambda Python Script
       run: |
