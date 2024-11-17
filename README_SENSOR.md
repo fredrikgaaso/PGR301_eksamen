@@ -27,14 +27,26 @@ Oppgave 3:
 - SQS URL: https://sqs.eu-west-1.amazonaws.com/244530008913/lambda_sqs_queue_75
 
 Oppgave 4:
-- Kan endre på mailen på "variables.tf" for å se at det funker, kan også være lurt å endre threshold i "sqs.tf" til noe lavere.
+- Kan endre på mailen på "variables.tf" for å se at det funker, kan også være lurt å endre threshold i "sqs.tf" til noe lavere for enklere testing.
 
 Oppgave 5:
 - Automatisering og kontinuerlig levering (CI/CD)
-  - 
+  - Styrker:
+    - E
+  - Svakheter
+    - E
 - Observability (overvåkning)
-  - 
+  - Styrker:
+    - e
+  - Svakheter:
+    - e
 - Skalerbarhet og kostnadskontroll:
-  - 
+  - Styrker:
+    - e
+  - Svakheter:
+    - e
 - Eierskap og ansvar:
-  - 
+  - Styrker:
+    - e
+  - Svakheter:
+    - e
