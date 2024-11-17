@@ -14,7 +14,7 @@ model_id = os.getenv("MODEL_ID")
 bucket_name = os.getenv("BUCKET_NAME")
 candidate_number = os.getenv("CANDIDATE_NUMBER")
 
-#adding comment to check for right update
+#adding comment
 
 def lambda_handler(event, context):
     logging.info("Received event: %s", json.dumps(event))
