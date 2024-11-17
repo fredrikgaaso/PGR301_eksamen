@@ -24,7 +24,7 @@ jobs:
         with:
           images: ${{ secrets.DOCKER_USERNAME }}/imagegenerator-75
           tags: |
-            type=raw,value={{date 'YYYY:MM:DD'}}
+            type=raw,value=v0.0.${{ github.run_number }}
             type=raw,value=latest
 
       - name: Log in to Docker Hub
