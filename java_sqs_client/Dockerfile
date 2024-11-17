@@ -15,7 +15,7 @@ WORKDIR /app
 
 COPY --from=build /app/target/*SNAPSHOT.jar app.jar
 
-ENV SQS_QUEUE_URL = "https://sqs.eu-west-1.amazonaws.com/244530008913/terraform-75-SimpleQueue-ITrY5qV4c0gZ"
+ENV SQS_QUEUE_URL = "https://sqs.eu-west-1.amazonaws.com/244530008913/lambda_sqs_queue_75"
 
 EXPOSE 8080
 
