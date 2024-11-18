@@ -14,8 +14,6 @@ model_id = os.getenv("MODEL_ID")
 bucket_name = os.getenv("BUCKET_NAME")
 candidate_number = os.getenv("CANDIDATE_NUMBER")
 
-#adding comment
-
 def lambda_handler(event, context):
     logging.info("Received event: %s", json.dumps(event))
     # Loop through all SQS records in the event
@@ -56,7 +54,7 @@ def lambda_handler(event, context):
     return {
         "statusCode": 200,
         "body": json.dumps({
-            "message": "Image generated and uploaded successfully",
+            "message": "Image generated and uploaded successfully to s3 bucket",
             "s3_image_uri": f"s3://{bucket_name}/{s3_image_path}"
         })
     }
