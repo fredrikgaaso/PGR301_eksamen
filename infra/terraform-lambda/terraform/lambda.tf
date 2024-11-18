@@ -4,6 +4,7 @@ resource "aws_lambda_function" "lambda_function" {
   role          = aws_iam_role.lambda_execution_role.arn
   handler       = "lambda_sqs.lambda_handler"
   filename      = "${path.module}/ImageGeneratorWithQue/lambda_sqs.py.zip"
+  source_code_hash = filebase64sha256("${path.module}/ImageGeneratorWithQue/lambda_sqs.py.zip")
   timeout       = 60
 
   environment {
