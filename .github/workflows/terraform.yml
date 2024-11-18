@@ -26,7 +26,7 @@ jobs:
       run: |
         cd infra/terraform-lambda/terraform/ImageGeneratorWithQue
         ls -la
-        zip lambda_sqs.py.zip .
+        zip -r lambda_sqs.py.zip .
 
     - name: Terraform Init
       run: |
