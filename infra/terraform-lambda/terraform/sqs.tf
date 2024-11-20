@@ -19,7 +19,7 @@ resource "aws_cloudwatch_metric_alarm" "sqs_oldest_message_age" {
   namespace           = "AWS/SQS"
   period              = 60
   statistic           = "Maximum"
-  threshold           = 1
+  threshold           = 300
   alarm_description   = "Alarm triggers if ApproximateAgeOfOldestMessage goes over threshold"
   dimensions = {
     QueueName = aws_sqs_queue.sqs_queue.name
