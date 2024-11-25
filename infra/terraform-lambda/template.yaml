@@ -58,6 +58,15 @@ Resources:
                 - "sqs:DeleteMessage"
                 - "sqs:GetQueueAttributes"
               Resource: !GetAtt SimpleQueue.Arn
+
+            - "Effect": "Allow",
+                "Action": [
+                  "logs:CreateLogGroup",
+                  "logs:CreateLogStream",
+                  "logs:PutLogEvents"
+                ],
+                "Resource": "arn:aws:logs:*:*:*"
+
       Events:
         SqsQueueEvent:
           Type: SQS
