@@ -40,6 +40,11 @@ resource "aws_iam_policy" "lambda_access_policy" {
       },
       {
         "Effect": "Allow",
+        "Action": "bedrock:InvokeModel",
+        "Resource": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-image-generator-v1"
+      },
+      {
+        "Effect": "Allow",
         "Action": [
           "logs:CreateLogGroup",
           "logs:CreateLogStream",
