@@ -51,11 +51,11 @@ def lambda_handler(event, context):
         # Upload the image to S3
         s3_client.put_object(Bucket=bucket_name, Key=s3_image_path, Body=image_data)
 
-    return {
+        return {
         "statusCode": 200,
         "body": json.dumps({
             "message": "Image generated and uploaded successfully",
             "s3_image_uri": f"s3://{bucket_name}/{s3_image_path}"
-        })
-    }
+            })
+        }
 

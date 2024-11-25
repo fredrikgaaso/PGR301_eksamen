@@ -29,7 +29,7 @@
 - **Docker Run Kommando:**
   Siden min Mac kjører på `arm64`-arkitektur må jeg spesifisere plattform når jeg kjører Docker-containeren:
   ```sh
-  docker run --platform linux/amd64 -e AWS_ACCESS_KEY_ID=xxx -e AWS_SECRET_ACCESS_KEY=yyy -e SQS_QUEUE_URL=<SQS_QUEUE_URL> _dockerhub_user/repo_ "me on top of a pyramid"
+  docker run --platform linux/amd64 -e AWS_ACCESS_KEY_ID=xxx -e AWS_SECRET_ACCESS_KEY=yyy -e SQS_QUEUE_URL=<SQS_QUEUE_URL> _dockerhub_user/repo_:tag_ "me on top of a pyramid"
   ```
 
 ## Oppgave 4
