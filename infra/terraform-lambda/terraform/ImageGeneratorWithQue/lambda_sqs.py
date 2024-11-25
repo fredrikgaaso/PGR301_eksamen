@@ -5,7 +5,7 @@ import random
 import os
 import logging
 
-# Frank; This is probably be closer to what we need in production. Let's get funding first!
+# Frank; This is probably closer to what we need in production. Let's get funding first!
 
 bedrock_client = boto3.client("bedrock-runtime", region_name="us-east-1")
 s3_client = boto3.client("s3")
@@ -24,7 +24,7 @@ def lambda_handler(event, context):
         seed = random.randint(0, 2147483647)
         s3_image_path = f"{candidate_number}/generated_images/titan_{seed}.png"
 
-        # Prepare the request for iamage generation
+        # Prepare the request for image generation
         native_request = {
             "taskType": "TEXT_IMAGE",
             "textToImageParams": {"text": prompt},
@@ -52,10 +52,9 @@ def lambda_handler(event, context):
         s3_client.put_object(Bucket=bucket_name, Key=s3_image_path, Body=image_data)
 
         return {
-        "statusCode": 200,
-        "body": json.dumps({
-            "message": "Image generated and uploaded successfully",
-            "s3_image_uri": f"s3://{bucket_name}/{s3_image_path}"
+            "statusCode": 200,
+            "body": json.dumps({
+                "message": "Image generated and uploaded successfully",
+                "s3_image_uri": f"s3://{bucket_name}/{s3_image_path}"
             })
         }
-
