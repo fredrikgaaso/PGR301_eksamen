@@ -12,7 +12,7 @@
 ## Oppgave 2
 
 - **Lenke til main branch workflow:** Main Branch Workflow: https://github.com/fredrikgaaso/PGR301_eksamen/actions/runs/11878937718
-- **Lenke til lambda branch workflow:** Lambda Branch Workflow: https://github.com/fredrikgaaso/PGR301_eksamen/actions/runs/11879037325/job/33100444545
+- **Lenke til lambda branch workflow:** Lambda Branch Workflow: https://github.com/fredrikgaaso/PGR301_eksamen/actions/runs/12027021349
 - **Lenke til SQS kø:** SQS Lambda Queue: https://sqs.eu-west-1.amazonaws.com/244530008913/lambda_sqs_queue_75
 
 ## Oppgave 3
