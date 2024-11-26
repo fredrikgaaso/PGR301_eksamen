@@ -43,7 +43,7 @@ Resources:
             - Effect: Allow
               Action:
                 - "bedrock:InvokeModel"
-              Resource: "*"  # Update with specific model ARN if possible
+              Resource: "*"
             - Effect: Allow
               Action:
                 - "s3:PutObject"

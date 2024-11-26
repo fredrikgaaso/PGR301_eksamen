@@ -25,8 +25,7 @@ jobs:
     - name: Zip Lambda Python Script
       run: |
         cd infra/terraform-lambda/terraform/ImageGeneratorWithQue
-        zip lambda_sqs.py.zip lambda_sqs.py
-
+        zip -r lambda_sqs.py.zip lambda_sqs.py
 
     - name: Terraform Init
       run: |

@@ -37,6 +37,20 @@ resource "aws_iam_policy" "lambda_access_policy" {
         ],
         Effect   = "Allow",
         Resource = "arn:aws:s3:::${var.bucket_name}/*"
+      },
+      {
+        "Effect": "Allow",
+        "Action": "bedrock:InvokeModel",
+        "Resource": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-image-generator-v1"
+      },
+      {
+        "Effect": "Allow",
+        "Action": [
+          "logs:CreateLogGroup",
+          "logs:CreateLogStream",
+          "logs:PutLogEvents"
+        ],
+        "Resource": "arn:aws:logs:*:*:*"
       }
     ]
   })
